@@ -1,4 +1,13 @@
 # PyKurd
 a simple and scuffed machine learning library for python
 
-Work in progress...
+### Features
+Implemented:
+[x] Linear Regression
+
+In Progress:
+[ ] K Nearest Neighbors
+
+In the future (Maybe):
+[ ] Support Vector Machine
+[ ] Linear Neural Networks

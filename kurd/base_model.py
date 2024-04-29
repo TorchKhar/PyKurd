@@ -6,5 +6,5 @@ class KurdModel:
   def fit(self, epoch):
     return
 
-  def train(self):
+  def train(self, lr):
     return
