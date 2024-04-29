@@ -83,9 +83,9 @@ class LinearRegression(KurdModel):
         return (true - prediction) ** 2
 
     def calculate_gradient(self, input, true, prediction):
-        # gradient of slope (m)
+        # gradient of MSE with respect to slope (m)
         dm = 2 * (true - prediction) * input
-        # gradient of intercept (b)
+        # gradient of MSE with respect to intercept (b)
         db = 2 * (true - prediction)
 
         return (dm, db)
