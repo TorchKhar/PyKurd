@@ -43,6 +43,7 @@ class LinearRegression(KurdModel):
             self.intercept_gradient = np.mean(intercept_gr_list)
             self.train(lr)
 
+    # Apply gradient descent
     def train(self, lr):
         self.slope -= self.slope_gradient * lr
         self.intercept -= self.intercept_gradient * lr
@@ -80,12 +81,12 @@ class LinearRegression(KurdModel):
         return x * self.slope + self.intercept
 
     def MSELoss(self, true, prediction):
-        return (true - prediction) ** 2
+        return (prediction - true) ** 2
 
     def calculate_gradient(self, input, true, prediction):
         # gradient of MSE with respect to slope (m)
-        dm = 2 * (true - prediction) * input
+        dm = 2 * (prediction - true) * input
         # gradient of MSE with respect to intercept (b)
-        db = 2 * (true - prediction)
+        db = 2 * (prediction - true)
 
         return (dm, db)
