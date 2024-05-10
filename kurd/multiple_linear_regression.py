@@ -1,5 +1,6 @@
 import random
 import math
+import time
 import numpy as np
 from kurd.base_model import KurdModel
 
@@ -124,13 +125,13 @@ class MultiLinearRegression(KurdModel):
         gr_sum = []
         # accumulate all gradients
         for i in range(len(gr_list[0])):
-            curr_gr = np.array([])
+            curr_gr = []
             for j in range(len(gr_list)):
-                curr_gr = np.append(curr_gr, gr_list[j][i])
+                curr_gr.append(gr_list[j][i])
             gr_sum.append(curr_gr)
 
         # calculate the mean for each gradient
         for gr in gr_sum:
-            mean_gr.append(np.mean(gr))
+            mean_gr.append(sum(gr) / len(gr))
 
         return mean_gr

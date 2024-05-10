@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.getcwd())
 import numpy as np
-from kurd.multi_linear_regression import MultiLinearRegression
+from kurd.multiple_linear_regression import MultiLinearRegression
 
 X = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [5, 6, 7]]
 SLOPES = [3, 2, -1]
@@ -17,7 +17,7 @@ for x in X:
     y.append(np.array([sum(yi) + INTERCEPT]))
 
 model = MultiLinearRegression((X, y))
-model.fit(700, 0.001)
+model.fit(2000, 0.02)
 
 yp = []
 for x in X:
