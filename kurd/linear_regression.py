@@ -1,5 +1,6 @@
 import math
 import numpy as np
+from tqdm import tqdm
 from kurd.base_model import KurdModel
 
 
@@ -19,11 +20,10 @@ class LinearRegression(KurdModel):
         # estimate the slope and intercept
         self.slope = self.estimate_slope()
         self.intercept = self.estimate_intercept()
-
-        loss_list = np.array([])
-        slope_gr_list = np.array([])
-        intercept_gr_list = np.array([])
-        for i in range(epoch):
+        for i in tqdm(range(epoch)):
+            loss_list = np.array([])
+            slope_gr_list = np.array([])
+            intercept_gr_list = np.array([])
             for ii, x in enumerate(self.X):
                 # Make prediction
                 pred = self.forward(x)

@@ -2,6 +2,7 @@ import random
 import math
 import time
 import numpy as np
+from tqdm import tqdm
 from kurd.base_model import KurdModel
 
 
@@ -21,10 +22,10 @@ class MultiLinearRegression(KurdModel):
     def fit(self, epoch, lr):
         self.slopes = self.estimate_slopes()
         self.intercept = self.estimate_intercept()
-        loss_list = np.array([])
-        slope_gr_list = []
-        intercept_gr_list = np.array([])
-        for i in range(epoch):
+        for i in tqdm(range(epoch)):
+            loss_list = np.array([])
+            slope_gr_list = []
+            intercept_gr_list = np.array([])
             for ii, x in enumerate(self.X):
                 # Make prediction
                 pred = self.forward(x)

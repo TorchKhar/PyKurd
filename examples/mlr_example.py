@@ -1,6 +1,5 @@
 import sys
 import os
-
 sys.path.append(os.getcwd())
 import numpy as np
 from kurd.multiple_linear_regression import MultiLinearRegression
@@ -17,7 +16,7 @@ for x in X:
     y.append(np.array([sum(yi) + INTERCEPT]))
 
 model = MultiLinearRegression((X, y))
-model.fit(2000, 0.02)
+model.fit(1000, 0.002)
 
 yp = []
 for x in X:
